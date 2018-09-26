@@ -156,9 +156,14 @@ namespace MuseCity {
     //% weight=80
 	//% blockGap=7
     export function getSgWeather(sgstation: sgStationSelect): string {
-        let sglink = '';
-        sglink = apiurlsg + sgstation;
-        return sglink;
+        httpReturnArray = [];
+        let sgTemp: string = '';
+        let sglink = apiurlsg + sgstation;
+        serial.writeLine("(AT+http?method=GET" + "&url=" + sglink + "&header=&body=)");
+        for (let value of MuseIoT.getGenericHttpReturn()) {
+            sgTemp = value;
+        }
+        return parseInt(sgTemp);
     }
 
 
