@@ -145,7 +145,7 @@ namespace MuseCity {
         let hklink = apiurlhk + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
         for (let value of MuseIoT.getGenericHttpReturn()) {
-            hkTemp = value;
+            hkTemp = value: string;
         }
         return parseInt(hkTemp);
     }
