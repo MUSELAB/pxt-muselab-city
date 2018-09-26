@@ -142,11 +142,10 @@ namespace MuseCity {
     export function getHkWeather(hkstation: hkStationSelect): number {
         httpReturnArray = [];
         let hkTemp: string = '';
-        let list: string[] = [];
         let hklink = apiurlhk + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
         for (let value of MuseIoT.getGenericHttpReturn()) {
-            hkTemp = list;
+            hkTemp = value;
         }
         return parseInt(hkTemp);
     }
@@ -156,7 +155,7 @@ namespace MuseCity {
     //%block="Select Singapore Station %sgstation"
     //% weight=80
 	//% blockGap=7
-    export function getSgWeather(sgstation: sgStationSelect): number {
+    export function getSgWeather(sgstation: sgStationSelect): string {
         let sglink = '';
         sglink = apiurlsg + sgstation;
         return sglink;
