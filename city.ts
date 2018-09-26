@@ -1,9 +1,9 @@
 namespace MuseCity {
-
+    let httpReturnArray: string[] = [];
 	let flag = true;
-    let apiurlhk = "api.muselab.hk/hk/?id="
-    let apiurlsg = "api.muselab.hk/sg/?id=" 
-    let apihkwcond = "api.muselab.hk/hk/conditions/index.php"
+    let apiurlhk = "api.muselab.hk/hk/?id=";
+    let apiurlsg = "api.muselab.hk/sg/?id=" ;
+    let apihkwcond = "api.muselab.hk/hk/conditions/index.php";
 	
     export enum hkStationSelect {
         //% blockId="HK1"
@@ -140,7 +140,8 @@ namespace MuseCity {
     //% weight=90
 	//% blockGap=7
     export function getHkWeather(hkstation: hkStationSelect): number {
-        let hkTemp = '';
+        httpReturnArray = [];
+        let hkTemp: string = '';
         let list: string[] = [];
         let hklink = apiurlhk + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
