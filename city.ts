@@ -136,7 +136,7 @@ namespace MuseCity {
 	
 	// -------------- 1. Main Blocks ----------------
     //%blockId=select_hkstation
-    //%block="Select Hong Kong Station %hkstation"
+    //%block="Select Hong Kong Station %hkstation (number)"
     //% weight=90
 	//% blockGap=7
     export function getHkWeather(hkstation: hkStationSelect): number {
@@ -152,7 +152,7 @@ namespace MuseCity {
      
 
     //%blockId=select_sgstation
-    //%block="Select Singapore Station %sgstation"
+    //%block="Select Singapore Station %sgstation (number)"
     //% weight=80
 	//% blockGap=7
     export function getSgWeather(sgstation: sgStationSelect): number {
@@ -168,12 +168,17 @@ namespace MuseCity {
 
 
     //%blockId=get_hk_weather_condition
-    //%block="Get HK Weather Condition"
+    //%block="Get HK Weather Condition (text)"
     //% weight=70
 	//% blockGap=7
     export function getHKwCond(): string {
-        let get_string = apihkwcond;
-        return get_string;
+        httpReturnArray = [];
+        let hkcond: string = '';
+        serial.writeLine("(AT+http?method=GET" + "&url=" + apihkwcond + "&header=&body=)");
+        for (let value of MuseIoT.getGenericHttpReturn()) {
+            hkcond = value;
+        }
+        return hkcond;
     }
 
 }
