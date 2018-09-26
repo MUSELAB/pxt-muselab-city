@@ -155,7 +155,7 @@ namespace MuseCity {
     //%block="Select Singapore Station %sgstation"
     //% weight=80
 	//% blockGap=7
-    export function getSgWeather(sgstation: sgStationSelect): string {
+    export function getSgWeather(sgstation: sgStationSelect): number {
         httpReturnArray = [];
         let sgTemp: string = '';
         let sglink = apiurlsg + sgstation;
