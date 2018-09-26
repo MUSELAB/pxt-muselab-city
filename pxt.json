@@ -1,0 +1,18 @@
+{
+    "name": "pxt-muselab-city",
+    "version": "1.0.0",
+    "description": "A MakeCode Block Package for city conditions for micro:bit",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+        },
+    "files": [
+        "README.md",
+        "ns.ts",
+        "city.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true
+}
