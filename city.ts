@@ -141,7 +141,7 @@ namespace MuseCity {
 	//% blockGap=7
     export function getHkWeather(hkstation: hkStationSelect): number {
         let hkTemp = '';
-        let list = [];
+        let list: string[] = [];
         let hklink = apiurlhk + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
         for (let value of MuseIoT.getGenericHttpReturn()) {
@@ -156,7 +156,8 @@ namespace MuseCity {
     //% weight=80
 	//% blockGap=7
     export function getSgWeather(sgstation: sgStationSelect): number {
-        let sglink = apiurlsg + sgstation;
+        let sglink = '';
+        sglink = apiurlsg + sgstation;
         return sglink;
     }
 
