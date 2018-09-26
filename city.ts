@@ -144,8 +144,8 @@ namespace MuseCity {
         let hkTemp: string = '';
         let hklink = apiurlhk + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
-        for (let value of MuseIoT.getGenericHttpReturn()) {
-            hkTemp = value;
+        for (let valueHK of MuseIoT.getGenericHttpReturn()) {
+            hkTemp = valueHK;
         }
         return parseInt(hkTemp);
     }
@@ -160,8 +160,8 @@ namespace MuseCity {
         let sgTemp: string = '';
         let sglink = apiurlsg + sgstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + sglink + "&header=&body=)");
-        for (let value of MuseIoT.getGenericHttpReturn()) {
-            sgTemp = value;
+        for (let valueSG of MuseIoT.getGenericHttpReturn()) {
+            sgTemp = valueSG;
         }
         return parseInt(sgTemp);
     }
@@ -175,8 +175,8 @@ namespace MuseCity {
         httpReturnArray = [];
         let hkcond: string = '';
         serial.writeLine("(AT+http?method=GET" + "&url=" + apihkwcond + "&header=&body=)");
-        for (let value of MuseIoT.getGenericHttpReturn()) {
-            hkcond = value;
+        for (let valueHKcond of MuseIoT.getGenericHttpReturn()) {
+            hkcond = valueHKcond;
         }
         return hkcond;
     }
