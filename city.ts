@@ -177,7 +177,7 @@ namespace MuseCity {
     //% weight=90
 	//% blockGap=7
     export function getHkWeather(hkstation: hkStationSelect): number {
-        httpReturnArray = [];
+        let httpReturnArray = [];
         let hkTemp: string = '';
         let hklink = apiurlhk + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
@@ -193,7 +193,7 @@ namespace MuseCity {
     //% weight=80
 	//% blockGap=7
     export function getSgWeather(sgstation: sgStationSelect): number {
-        httpReturnArray = [];
+        let httpReturnArray = [];
         let sgTemp: string = '';
         let sglink = apiurlsg + sgstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + sglink + "&header=&body=)");
@@ -209,7 +209,7 @@ namespace MuseCity {
     //% weight=70
 	//% blockGap=7
     export function getHKwCond(): string {
-        httpReturnArray = [];
+        let httpReturnArray = [];
         let hkcond: string = '';
         serial.writeLine("(AT+http?method=GET" + "&url=" + apihkwcond + "&header=&body=)");
         for (let valueHKcond of MuseIoT.getGenericHttpReturn()) {
@@ -218,14 +218,26 @@ namespace MuseCity {
         return hkcond;
     }
 
-    //%subcategory=More
-    //%blockId=select_hktraffic
-    //%block="Hong Kong Road Additional Travel Time %hkTrafficSelect"
-	//% weight=60
+ 
     export function getHkTraffic(hkdest: hkStationSelect): string {
         let hkTlink = "";
-        hkTlink = apiurlhktraffic + hkdest;
+        
         return hkTlink;
+    }
+
+    //%blockId=select_hktraffic
+    //%block="Hong Kong Road Additional Travel Time %hkTrafficSelect"
+    //% weight=60
+	//% blockGap=7
+    export function getHkTraffic(hkdest: hkStationSelect): number {
+        let httpReturnArray = [];
+        let hkJam: string = '';
+        let hkTlink = apiurlhktraffic + hkdest;
+        serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
+        for (let valueHKJam of MuseIoT.getGenericHttpReturn()) {
+            hkJam = valueHKJam;
+        }
+        return parseInt(hkJam);
     }
 
 }
