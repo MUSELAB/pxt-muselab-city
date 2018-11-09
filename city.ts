@@ -138,37 +138,37 @@ namespace MuseCity {
     export enum hkTrafficSelect {
         //% blockId="HKT1"
         //% block="Cross Harbour Tunnel"
-        HKT1 = "CH",
+        HKT1 = 1,
         //% blockId="HKT2"
         //% block="Eastern Harbour Crossing"
-        HKT2 = "EH",
+        HKT2 = 2,
 		//% blockId="HKT3"
         //% block="Western Harbour Crossing"
-        HKT3 = "WH",
+        HKT3 = 3,
         //% blockId="HKT4"
         //% block="Lion Rock Tunnel"
-        HKT4 = "LRT",
+        HKT4 = 4,
 		//% blockId="HKT5"
         //% block="Shing Mun Tunnel"
-        HKT5 = "SMT",
+        HKT5 = 5,
         //% blockId="HKT6"
         //% block="Tates Cairn Tunnel"
-        HKT6 = "TCT",
+        HKT6 = 6,
 		//% blockId="HKT7"
         //% block="Ting Kau via Tai Lum Tunnel"
-        HKT7 = "TKTL",
+        HKT7 = 7,
         //% blockId="HKT8"
         //% block="Ting Kau via Tuen Mun Road"
-        HKT8 = "TKTM",
+        HKT8 = 8,
         //% blockId="HKT9"
         //% block="Tsing Sha Control Area"
-        HKT9 = "TSCA",
+        HKT9 = 9,
 		//% blockId="HKT10"
         //% block="Tsuen Wan via Castle Peak"
-        HKT10 = "TWCP",
+        HKT10 = 10,
         //% blockId="HKT11"
         //% block="Tsuen Wan via Tuen Mun"
-        HKT11 = "TWTM"
+        HKT11 = 11
     }
 	
 	// -------------- 1. Main Blocks ----------------
