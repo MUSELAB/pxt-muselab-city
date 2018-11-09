@@ -4,6 +4,7 @@ namespace MuseCity {
     let apiurlhk = "api.muselab.hk/hk/?id="
     let apiurlsg = "api.muselab.hk/sg/?id=" 
     let apihkwcond = "api.muselab.hk/hk/conditions/index.php"
+    let apiurlhktraffic = "api.muselab.hk/hk/musetraffic/?id="
 	
     export enum hkStationSelect {
         //% blockId="HK1"
@@ -133,6 +134,42 @@ namespace MuseCity {
         //% block="Scotts Road"
         SG15 = 15
     }
+
+    export enum hkTrafficSelect {
+        //% blockId="HKT1"
+        //% block="Cross Harbour Tunnel"
+        HKT1 = "CH",
+        //% blockId="HKT2"
+        //% block="Eastern Harbour Crossing"
+        HKT2 = "EH",
+		//% blockId="HKT3"
+        //% block="Western Harbour Crossing"
+        HKT3 = "WH",
+        //% blockId="HKT4"
+        //% block="Lion Rock Tunnel"
+        HKT4 = "LRT",
+		//% blockId="HKT5"
+        //% block="Shing Mun Tunnel"
+        HKT5 = "SMT",
+        //% blockId="HKT6"
+        //% block="Tates Cairn Tunnel"
+        HKT6 = "TCT",
+		//% blockId="HKT7"
+        //% block="Ting Kau via Tai Lum Tunnel"
+        HKT7 = "TKTL",
+        //% blockId="HKT8"
+        //% block="Ting Kau via Tuen Mun Road"
+        HKT8 = "TKTM",
+        //% blockId="HKT9"
+        //% block="Tsing Sha Control Area"
+        HKT9 = "TSCA",
+		//% blockId="HKT10"
+        //% block="Tsuen Wan via Castle Peak"
+        HKT10 = "TWCP",
+        //% blockId="HKT11"
+        //% block="Tsuen Wan via Tuen Mun"
+        HKT11 = "TWTM"
+    }
 	
 	// -------------- 1. Main Blocks ----------------
     //%blockId=select_hkstation
@@ -155,7 +192,7 @@ namespace MuseCity {
     //%block="Select Singapore Station %sgstation"
     //% weight=80
 	//% blockGap=7
-    export function getSgWeather(sgstation: sgStationSelect): number {
+    export function getSgWeather(sgstation: sgStationSelect): string {
         let sglink = '';
         sglink = apiurlsg + sgstation;
         return sglink;
@@ -169,6 +206,16 @@ namespace MuseCity {
     export function getHKwCond(): string {
         let get_string = apihkwcond;
         return get_string;
+    }
+
+    //%subcategory=More
+    //%blockId=select_hktraffic
+    //%block="Hong Kong Road Additional Travel Time %hkTrafficSelect"
+	//% weight=60
+    export function getHkTraffic(hkdest: hkStationSelect): string {
+        let hkTlink = "";
+        hkTlink = apiurlhktraffic + hkdest;
+        return hkTlink;
     }
 
 }
