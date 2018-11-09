@@ -216,7 +216,7 @@ namespace MuseCity {
     }
 
     //%blockId=select_hktraffic
-    //%block="Hong Kong Road Additional Travel Time %hkTrafficSelect"
+    //%block="Hong Kong Travel Time (min.) %hkTrafficSelect (number)"
     //% weight=60
 	//% blockGap=7
     export function getHkTraffic(hkdest: hkTrafficSelect): number {
