@@ -1,5 +1,5 @@
 namespace MuseCity {
-
+	let httpReturnArray: string[] = []
 	let flag = true;
     let apiurlhk = "api.muselab.hk/hk/?id="
     let apiurlsg = "api.muselab.hk/sg/?id=" 
@@ -177,7 +177,6 @@ namespace MuseCity {
     //% weight=90
 	//% blockGap=7
     export function getHkWeather(hkstation: hkStationSelect): number {
-        let httpReturnArray = [];
         let hkTemp: string = '';
         let hklink = apiurlhk + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
@@ -193,7 +192,6 @@ namespace MuseCity {
     //% weight=80
 	//% blockGap=7
     export function getSgWeather(sgstation: sgStationSelect): number {
-        let httpReturnArray = [];
         let sgTemp: string = '';
         let sglink = apiurlsg + sgstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + sglink + "&header=&body=)");
@@ -209,7 +207,6 @@ namespace MuseCity {
     //% weight=70
 	//% blockGap=7
     export function getHKwCond(): string {
-        let httpReturnArray = [];
         let hkcond: string = '';
         serial.writeLine("(AT+http?method=GET" + "&url=" + apihkwcond + "&header=&body=)");
         for (let valueHKcond of MuseIoT.getGenericHttpReturn()) {
@@ -222,8 +219,7 @@ namespace MuseCity {
     //%block="Hong Kong Road Additional Travel Time %hkTrafficSelect"
     //% weight=60
 	//% blockGap=7
-    export function getHkTraffic(hkdest: hkStationSelect): number {
-        let httpReturnArray = [];
+    export function getHkTraffic(hkdest: hkTrafficSelect): number {
         let hkJam: string = '';
         let hkTlink = apiurlhktraffic + hkdest;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hkTlink + "&header=&body=)");
