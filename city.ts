@@ -173,39 +173,49 @@ namespace MuseCity {
 	
 	// -------------- 1. Main Blocks ----------------
     //%blockId=select_hkstation
-    //%block="Select Hong Kong Station %hkstation"
+    //%block="Select Hong Kong Station %hkstation (number)"
     //% weight=90
 	//% blockGap=7
     export function getHkWeather(hkstation: hkStationSelect): number {
-        let hkTemp = '';
-        let list: string[] = [];
+        httpReturnArray = [];
+        let hkTemp: string = '';
         let hklink = apiurlhk + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
-        for (let value of MuseIoT.getGenericHttpReturn()) {
-            hkTemp = list;
+        for (let valueHK of MuseIoT.getGenericHttpReturn()) {
+            hkTemp = valueHK;
         }
         return parseInt(hkTemp);
     }
      
 
     //%blockId=select_sgstation
-    //%block="Select Singapore Station %sgstation"
+    //%block="Select Singapore Station %sgstation (number)"
     //% weight=80
 	//% blockGap=7
-    export function getSgWeather(sgstation: sgStationSelect): string {
-        let sglink = '';
-        sglink = apiurlsg + sgstation;
-        return sglink;
+    export function getSgWeather(sgstation: sgStationSelect): number {
+        httpReturnArray = [];
+        let sgTemp: string = '';
+        let sglink = apiurlsg + sgstation;
+        serial.writeLine("(AT+http?method=GET" + "&url=" + sglink + "&header=&body=)");
+        for (let valueSG of MuseIoT.getGenericHttpReturn()) {
+            sgTemp = valueSG;
+        }
+        return parseInt(sgTemp);
     }
 
 
     //%blockId=get_hk_weather_condition
-    //%block="Get HK Weather Condition"
+    //%block="Get HK Weather Condition (text)"
     //% weight=70
 	//% blockGap=7
     export function getHKwCond(): string {
-        let get_string = apihkwcond;
-        return get_string;
+        httpReturnArray = [];
+        let hkcond: string = '';
+        serial.writeLine("(AT+http?method=GET" + "&url=" + apihkwcond + "&header=&body=)");
+        for (let valueHKcond of MuseIoT.getGenericHttpReturn()) {
+            hkcond = valueHKcond;
+        }
+        return hkcond;
     }
 
     //%subcategory=More
