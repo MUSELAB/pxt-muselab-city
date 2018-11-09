@@ -218,13 +218,6 @@ namespace MuseCity {
         return hkcond;
     }
 
- 
-    export function getHkTraffic(hkdest: hkStationSelect): string {
-        let hkTlink = "";
-        
-        return hkTlink;
-    }
-
     //%blockId=select_hktraffic
     //%block="Hong Kong Road Additional Travel Time %hkTrafficSelect"
     //% weight=60
@@ -233,7 +226,7 @@ namespace MuseCity {
         let httpReturnArray = [];
         let hkJam: string = '';
         let hkTlink = apiurlhktraffic + hkdest;
-        serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
+        serial.writeLine("(AT+http?method=GET" + "&url=" + hkTlink + "&header=&body=)");
         for (let valueHKJam of MuseIoT.getGenericHttpReturn()) {
             hkJam = valueHKJam;
         }
