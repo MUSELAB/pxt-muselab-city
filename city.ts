@@ -1,10 +1,7 @@
 namespace MuseCity {
 	let httpReturnArray: string[] = []
 	let flag = true;
-    let apiurlhk = "api.muselab.hk/hk/?id="
-    let apiurlsg = "api.muselab.hk/sg/?id=" 
-    let apihkwcond = "api.muselab.hk/hk/conditions/index.php"
-    let apiurlhktraffic = "api.muselab.hk/hk/musetraffic/?id="
+	let apiurl = "iot.muselab.cc/index.php?"
 	
     export enum hkStationSelect {
         //% blockId="HK1"
@@ -179,8 +176,8 @@ namespace MuseCity {
     export function getHkWeather(hkstation: hkStationSelect): number {
     	httpReturnArray = []
         let hkTemp: string = '';
-        let hklink = apiurlhk + hkstation;
-        serial.writeLine("(AT+http?method=GET" + "&url=" + hklink + "&header=&body=)");
+        let link = apiurl + "hktemp_id" + hkstation;
+        serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
         for (let valueHK of MuseIoT.getGenericHttpReturn()) {
             hkTemp = valueHK;
         }
@@ -195,8 +192,8 @@ namespace MuseCity {
     export function getSgWeather(sgstation: sgStationSelect): number {
     	httpReturnArray = []
         let sgTemp: string = '';
-        let sglink = apiurlsg + sgstation;
-        serial.writeLine("(AT+http?method=GET" + "&url=" + sglink + "&header=&body=)");
+        let link = apiurl + "sgtemp_id" + sgstation;
+        serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
         for (let valueSG of MuseIoT.getGenericHttpReturn()) {
             sgTemp = valueSG;
         }
@@ -210,8 +207,8 @@ namespace MuseCity {
 	//% blockGap=7
     export function getHKwCond(): string {
     	httpReturnArray = []
-        let hkcond: string = '';
-        serial.writeLine("(AT+http?method=GET" + "&url=" + apihkwcond + "&header=&body=)");
+        let link = apiurl + "hkcond_id=1"
+        serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
         for (let valueHKcond of MuseIoT.getGenericHttpReturn()) {
             hkcond = valueHKcond;
         }
@@ -225,8 +222,8 @@ namespace MuseCity {
     export function getHkTraffic(hkdest: hkTrafficSelect): number {
     	httpReturnArray = []
         let hkJam: string = '';
-        let hkTlink = apiurlhktraffic + hkdest;
-        serial.writeLine("(AT+http?method=GET" + "&url=" + hkTlink + "&header=&body=)");
+        let link = apiurl + "hktraffic_id" + hkdest
+        serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
         for (let valueHKJam of MuseIoT.getGenericHttpReturn()) {
             hkJam = valueHKJam;
         }
