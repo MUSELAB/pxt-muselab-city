@@ -174,7 +174,6 @@ namespace MuseCity {
     //% weight=90
 	//% blockGap=7
     export function getHkWeather(hkstation: hkStationSelect): number {
-    	httpReturnArray = []
         let hkTemp: string = '';
         let link = apiurl + "hktemp_id" + hkstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
@@ -190,7 +189,6 @@ namespace MuseCity {
     //% weight=80
 	//% blockGap=7
     export function getSgWeather(sgstation: sgStationSelect): number {
-    	httpReturnArray = []
         let sgTemp: string = '';
         let link = apiurl + "sgtemp_id" + sgstation;
         serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
@@ -206,7 +204,6 @@ namespace MuseCity {
     //% weight=70
 	//% blockGap=7
     export function getHKwCond(): string {
-    	httpReturnArray = []
     	let hkcond: string = '';
         let link = apiurl + "hkcond_id=1"
         serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
@@ -221,7 +218,6 @@ namespace MuseCity {
     //% weight=60
 	//% blockGap=7
     export function getHkTraffic(hkdest: hkTrafficSelect): number {
-    	httpReturnArray = []
         let hkJam: string = '';
         let link = apiurl + "hktraffic_id" + hkdest
         serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
