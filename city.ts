@@ -210,7 +210,7 @@ namespace MuseCity {
         let link = apiurl + "hkcond_id=1"
         serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
         for (let valueHKcond of MuseIoT.getGenericHttpReturn()) {
-            hkcond = valueHKcond;
+            let hkcond = valueHKcond;
         }
         return hkcond;
     }
