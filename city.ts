@@ -207,10 +207,11 @@ namespace MuseCity {
 	//% blockGap=7
     export function getHKwCond(): string {
     	httpReturnArray = []
+    	let hkcond: string = '';
         let link = apiurl + "hkcond_id=1"
         serial.writeLine("(AT+http?method=GET" + "&url=" + link + "&header=&body=)");
         for (let valueHKcond of MuseIoT.getGenericHttpReturn()) {
-            let hkcond = valueHKcond;
+            hkcond = valueHKcond;
         }
         return hkcond;
     }
