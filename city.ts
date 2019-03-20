@@ -1,10 +1,10 @@
 namespace MuseCity {
     let httpReturnArray: string[] = []
     let flag = true;
-    let apiurlhk = "api.muselab.hk/hk/?id="
-    let apiurlsg = "api.muselab.hk/sg/?id=" 
-    let apihkwcond = "api.muselab.hk/hk/conditions/index.php"
-    let apiurlhktraffic = "api.muselab.hk/hk/musetraffic/?id="
+    let apiurlhk = "api.muselab.cc/hk/?id="
+    let apiurlsg = "api.muselab.cc/sg/?id=" 
+    let apihkwcond = "api.muselab.cc/hk/conditions/index.php"
+    let apiurlhktraffic = "api.muselab.cc/hk/musetraffic/?id="
     
     export enum hkStationSelect {
         //% blockId="HK1"
